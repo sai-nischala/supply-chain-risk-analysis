@@ -31,12 +31,12 @@ when factoring in both frequency and duration of delays.
 - Only 17.8% shipped on time
 
 ### Finding 2 — The Shipping Mode Paradox
-| Shipping Mode | Late Rate | Risk Score |
-|------------- |---------- |------------|
-| First Class  | 95.3% 🔴  | 190.64 |
-| Second Class | 76.6% 🔴  | **229.20** |
-| Same Day     | 45.7% 🟡  | 67.62 |
-| Standard Class | 38.1% 🟢 | 37.92 |
+| Shipping Mode | Late Rate | Avg Delay (Days) | Risk Score |
+|--------------|-----------|-----------------|------------|
+| First Class | 95.3% 🔴 | 1.00 | 190.64 |
+| Second Class | 76.6% 🔴 | 1.99 | **229.20** ⚠️ |
+| Same Day | 45.7% 🟡 | 0.48 | 67.62 |
+| Standard Class | 38.1% 🟢 | 0.00 | 37.92 |
 
 ### Finding 3 — Internal Operational Failure
 All 5 global markets show identical delay rates (54–55%), proving the problem 
@@ -54,15 +54,29 @@ Linear regression forecast predicts continued increase through mid-2018.
 ---
 
 ##  Project Structure
+
+```
 supply-chain-risk-analysis/
 │
-├── Supply_Chain_Analysis.ipynb   # Python notebook (cleaning, EDA, forecast)
-├── supply_chain_queries.sql      # All SQL queries with comments
-├── supply_chain_dashboard.html   # Interactive Plotly dashboard
-├── supply_chain_clean.csv        # Cleaned dataset
-├── charts/                       # All 7 generated chart images
-└── Supply_Chain_Analytics_Guidebook.docx  # Complete beginner guide
+├── Supply_Chain_Analysis.ipynb        # Python notebook: cleaning, EDA, charts, forecast
+├── supply_chain_queries.sql           # SQL queries with full comments
+├── supply_chain_project_queries.sql   # Extended SQL analysis
+├── supply_chain_dashboard.html        # Interactive Plotly dashboard
+├── Supply_Chain_Dashboard.pbix        # Power BI dashboard file
+├── Supply_Chain_Analytics_Guidebook.docx  # Beginner's guide
+│
+├── chart1_delivery_status.png         # Delivery status breakdown
+├── chart2_shipping_mode_risk.png      # Late rate by shipping mode
+├── chart3_market_risk.png             # Late rate by global market
+├── chart4_heatmap.png                 # Heatmap: market vs shipping mode
+├── chart5_yearly_trend.png            # Yearly trend 2015-2018
+├── chart6_category_risk.png           # Top 10 riskiest product categories
+└── chart7_forecast.png                # Actual vs forecast (linear regression)
+```
+
 ---
+
+
 
 ##  Dashboard Preview
 > Interactive Plotly dashboard includes KPI cards, heatmap, trend line, 
@@ -97,10 +111,11 @@ pip install pandas matplotlib seaborn plotly scipy sqlalchemy pymysql
 ---
 
 ##  Dataset
-- **Source:** DataCo Supply Chain Dataset (Kaggle)
+- **Source:** [DataCo Supply Chain Dataset — Kaggle](https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis)
 - **Size:** 180,519 orders, 53 columns
 - **Period:** January 2015 – January 2018
 - **Markets:** Europe, Pacific Asia, USCA, Africa, LATAM
+- **Note:** Raw dataset not included due to size (85MB). Download from Kaggle link above.
 
 ---
 
