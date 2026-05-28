@@ -1,5 +1,9 @@
 #  Supply Chain Risk Analysis
-
+![Python](https://img.shields.io/badge/Python-3.14-blue?logo=python)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?logo=mysql)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow?logo=powerbi)
+![Plotly](https://img.shields.io/badge/Plotly-Interactive-green?logo=plotly)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 ##  Project Overview
 End-to-end business analytics project analyzing **180,519 orders** from a global 
 supply chain dataset (2015–2018) to identify delivery risk patterns, build a custom 
